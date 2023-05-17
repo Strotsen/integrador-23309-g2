@@ -1,23 +1,22 @@
-
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import { Show } from "./Components/Show";
+import {Create} from "./Components/Create";
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-       
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <BrowserRouter>
+<Routes>
+  <Route path="/" element ={<Show/>}/>
+  <Route path="/create" element ={<Create/>}/>  
+  <Route path="/edit/:id" element ="Componenete Editooooo" />
+ 
+</Routes>
+
+     </BrowserRouter>
+        
     </div>
   );
 }
