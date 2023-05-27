@@ -42,7 +42,7 @@ export const Show =()=> {
              //llamar a la funcion de eliminar
              Swal.fire(
             'Borrado!',
-            'Borraste tu jugador',
+            'Borraste el plato',
             'success'
           )
         }
