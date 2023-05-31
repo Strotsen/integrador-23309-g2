@@ -64,11 +64,11 @@ return(
       <div className="container">
         <div className="row">
           <div className="col">
-            <div className="d-grid gap-2">
-              <Link to = "/create" className="btn btn-secondary mt-2 mb-2" >CREAR</Link>
+            <div className="d-grid gap-2 col-8 mx-auto justify-content-md-end">
+              <Link to = "/create" className="btn btn-outline-success btn-lg mt-2 mb-2" >New</Link>
 
             </div>
-            <table className="table table-dark  table-hover"> 
+            <table className="table table-bordered border-secondary table-success table-striped table-hover"> 
             <thead>
               <tr>
                 <th>Authors </th>

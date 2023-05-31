@@ -1,7 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import {useNavigate} from "react-router-dom" //7 importamos UseNavigate
 import {useLocation} from  "react-router-dom" //10 importamos useLocation https://reactrouter.com/en/main/hooks/use-location
-/* import "./Buscador.css" */
+import "./Buscador.css" 
 import { useState } from "react"; // 1 importar useState
 
 export const Buscador = () => {
