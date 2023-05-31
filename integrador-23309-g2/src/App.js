@@ -1,6 +1,7 @@
 import {LandingPage} from "./Pages/LandingPage"
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import {Create} from "./Components/Create";
+import {Edit} from "./Components/Edit";
 import './App.css';
 
 
@@ -11,7 +12,7 @@ function App() {
 <Routes>
   <Route path="/" element={<LandingPage/>} />
   <Route path="/create" element ={<Create/>}/>  
-  <Route path="/edit/:id" element ="Componenete Edito" />
+  <Route path="/edit/:id" element ={<Edit/>}/>
 
 </Routes>
 

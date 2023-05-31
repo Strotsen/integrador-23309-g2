@@ -71,7 +71,7 @@ return(
             <table className="table table-bordered border-secondary table-success table-striped table-hover"> 
             <thead>
               <tr>
-                <th>Authors </th>
+                <th>Food </th>
                 <th>Description</th>
                 <th>Stock</th>
                 <th>Actions</th>
@@ -81,12 +81,12 @@ return(
               {restaurant.map((restaurant)=>(
                 <tr key={restaurant.id}>
                   <td>{restaurant.Nombre} </td>
-                  <td>{restaurant.Ingredientes} </td>
+                  <td>{restaurant.Ingredientes.join(" - ")} </td>
                   <td>{restaurant.Precio} </td>
                   <td>
                     
                     <Link to ={`/edit/${restaurant.id}`}className="btn btn-light"><i className="fa-solid fa-pencil"></i></Link>
-                  <button onClick={()=>{confirmDelete(restaurant.id)}} className="btn btn-danger"><i className="fa-solid fa-trash"></i></button>
+                  <button onClick={()=>{confirmDelete(restaurant.id)}} className="btn btn-secondary"><i className="fa-solid fa-trash"></i></button>
                   </td>
                 </tr>
               ))}
