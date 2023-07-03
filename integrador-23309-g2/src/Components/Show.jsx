@@ -4,6 +4,7 @@ import {collection,getDocs,deleteDoc,doc}from "firebase/firestore"
 import{db} from "../firebaseConfig/firebase.js"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
+import {useQuery} from "../hooks/useQuery.jsx"
 
 
 const mySwal = withReactContent (Swal)
@@ -11,6 +12,7 @@ const mySwal = withReactContent (Swal)
 export const Show =()=> {
     // 1 configurar los hooks
     const [restaurant, setRestaurant] = useState ([])
+    const [cargando,setCargando]= useState(true);
     //  2 referencia a la bd de firestores
     const restaurantCollection = collection(db,"restaurant")
     // 3 funcion para mostrar todos os docs
@@ -22,6 +24,13 @@ export const Show =()=> {
     )
     console.log(restaurant);
     }
+
+  //13 utilizo useQuery() para obtener lo que buscamos
+    const query = useQuery()
+    const search = query.get("search")
+  /*  console.log(search);  */
+
+
       // 4 funcion para eliminar un doc
 
       const deleteRestaurant = async (id)=>{ 
@@ -51,10 +60,12 @@ export const Show =()=> {
       })
          
       }
+
+ 
       //6 useEFect
       useEffect(()=>{
         getRestaurant()
-      },[])
+      },[search])
 
       // 7 devolvemos la vista a nuestro componenete
 
@@ -81,7 +92,7 @@ return(
               {restaurant.map((restaurant)=>(
                 <tr key={restaurant.id}>
                   <td>{restaurant.Nombre} </td>
-                  <td>{restaurant.Ingredientes.join(" - ")} </td>
+                  <td>{restaurant.Ingredientes} </td>
                   <td>{restaurant.Precio} </td>
                   <td>
                     
