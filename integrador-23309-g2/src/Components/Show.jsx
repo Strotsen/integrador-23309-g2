@@ -7,28 +7,29 @@ import withReactContent from "sweetalert2-react-content"
 import {useQuery} from "../hooks/useQuery.jsx"
 
 
+
 const mySwal = withReactContent (Swal)
 
 export const Show =()=> {
     // 1 configurar los hooks
     const [restaurant, setRestaurant] = useState ([])
-    const [cargando,setCargando]= useState(true);
+   /*  const [filtrar, setfiltrar]= useState ([]) */
     //  2 referencia a la bd de firestores
     const restaurantCollection = collection(db,"restaurant")
     // 3 funcion para mostrar todos os docs
     const getRestaurant = async ()=> {
     const data = await getDocs (restaurantCollection)
-    //console.log(data.docs);
+    console.log(data.docs);
     setRestaurant(
         data.docs.map((doc)=>({...doc.data(),id:doc.id}))
     )
-    console.log(restaurant);
+ 
     }
-
+    console.log(restaurant);
   //13 utilizo useQuery() para obtener lo que buscamos
     const query = useQuery()
     const search = query.get("search")
-  /*  console.log(search);  */
+/*    console.log(search);  */
 
 
       // 4 funcion para eliminar un doc
@@ -61,15 +62,30 @@ export const Show =()=> {
          
       }
 
- 
+
+function searching  (search) {
+
+        var filtro = restaurant.filter(() => {
+          if (restaurant.Nombre.includes(search)
+          || restaurant.Ingredientes.includes(search)
+        ) 
+        setRestaurant(filtro);
+       });
+    
+      }
+        useEffect(()=>{
+        getRestaurant()
+      },[])   
+    
+
       //6 useEFect
       useEffect(()=>{
-        getRestaurant()
+        searching()
       },[search])
 
       // 7 devolvemos la vista a nuestro componenete
 
-
+ 
 return(
     <>
       <div className="container">
