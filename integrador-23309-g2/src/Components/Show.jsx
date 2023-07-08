@@ -5,7 +5,8 @@ import{db} from "../firebaseConfig/firebase.js"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import {useQuery} from "../hooks/useQuery.jsx"
-
+import { list } from "firebase/storage"
+import { Create } from "./Create.jsx"
 
 
 const mySwal = withReactContent (Swal)
@@ -23,7 +24,6 @@ export const Show =()=> {
     setRestaurant(
         data.docs.map((doc)=>({...doc.data(),id:doc.id}))
     )
- 
     }
     console.log(restaurant);
   //13 utilizo useQuery() para obtener lo que buscamos
@@ -38,9 +38,10 @@ export const Show =()=> {
         const restaurantDoc = doc(db,"restaurant",id)
         await deleteDoc (restaurantDoc) 
         getRestaurant()
-      }
-      // 5 funcion para la confirmacion de sweet alert 
-      const confirmDelete =(id) => { Swal.fire({
+    }
+
+    // 5 funcion para la confirmacion de sweet alert 
+    const confirmDelete =(id) => { Swal.fire({
         title: '¿Estas seguro?',
         text: "No podes Revertir esto!",
         icon: 'warning',
@@ -48,21 +49,18 @@ export const Show =()=> {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: '¡Si quiero borralo!'
-      }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
             deleteRestaurant(id)
              //llamar a la funcion de eliminar
-             Swal.fire(
+            Swal.fire(
             'Borrado!',
             'Borraste el plato',
             'success'
-          )
+        )
         }
-      })
-         
-      }
-
-
+    })
+    }
 function searching  (search) {
 
         var filtro = restaurant.filter(() => {
@@ -70,7 +68,7 @@ function searching  (search) {
           || restaurant.Ingredientes.includes(search)
         ) 
         setRestaurant(filtro);
-       });
+      });
     
       }
         useEffect(()=>{
@@ -85,49 +83,46 @@ function searching  (search) {
 
       // 7 devolvemos la vista a nuestro componenete
 
- 
+
 return(
-    <>
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <div className="d-grid gap-2 col-8 mx-auto justify-content-md-end">
-              <Link to = "/create" className="btn btn-outline-success btn-lg mt-2 mb-2" >New</Link>
+  <div className="container-fluid text-center">
+  <div className="row" id="menu">
+    <div className="col-xl-12 mt-3 mb-1" >
+      <p>Conocé nuestro</p>
+      <h2>MENÚ</h2>
+    </div>
+  <div className="d-grid gap-2 col-8 mx-auto justify-content-md-end">
+      <Link to = "/create" className="btn btn-outline-success btn-lg mt-2 mb-2" >New</Link>
 
-            </div>
-            <table className="table table-bordered border-secondary table-success table-striped table-hover"> 
-            <thead>
-              <tr>
-                <th>Food </th>
-                <th>Description</th>
-                <th>Stock</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {restaurant.map((restaurant)=>(
-                <tr key={restaurant.id}>
-                  <td>{restaurant.Nombre} </td>
-                  <td>{restaurant.Ingredientes} </td>
-                  <td>{restaurant.Precio} </td>
-                  <td>
-                    
-                    <Link to ={`/edit/${restaurant.id}`}className="btn btn-light"><i className="fa-solid fa-pencil"></i></Link>
-                  <button onClick={()=>{confirmDelete(restaurant.id)}} className="btn btn-secondary"><i className="fa-solid fa-trash"></i></button>
-                  </td>
-                </tr>
-              ))}
-
-            </tbody>
-
-            </table>
-
-          </div>
-
+  </div>
+  <div class="row d-flex justify-content-center">
+    {restaurant.map((item) => (
+      <div className="card" style={{ width: "18rem" }} key={item.id}>
+        <img
+          src={item.imagen}
+          className="card-img-top"
+          alt="comida"
+        />
+        <div className="card-body">
+          <h5 className="card-title">{item.nombre}</h5>
+          <p className="card-text">Ingredientes: {item.descripcion}</p>
+          <p className="card-text">Stock: {item.precio}</p>
+          <Link to={`/edit/${item.id}`} className="btn btn-light">
+            <i className="fa-solid fa-pencil"></i>
+          </Link>
+          <button
+            onClick={() => {
+              confirmDelete(item.id);
+            }}
+            className="btn btn-secondary"
+          >
+            <i className="fa-solid fa-trash"></i>
+          </button>
         </div>
       </div>
-    </>
+    ))}
+  </div>  
+  </div>
+</div>
 )
-
-
 }

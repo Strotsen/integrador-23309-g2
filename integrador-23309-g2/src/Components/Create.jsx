@@ -1,63 +1,87 @@
-import { useState } from "react";
-import {useNavigate}from "react-router-dom"
-import {collection,addDoc} from "firebase/firestore"
-import {db} from "../firebaseConfig/firebase.js"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { db, storage } from "../firebaseConfig/firebase.js";
 
-export const Create = () =>{
-    const [food, setFood] = useState("");
-    const [description, setDescription] = useState("");
-    const [price, setPrice] = useState(0);
+export const Create = () => {
+  const navigate = useNavigate();
+  const restaurantCollection = collection(db, "restaurant");
 
-const navigate = useNavigate()
+  const createFood = async (e) => {
+    e.preventDefault();
+    const nombre = e.target.nombre.value;
+    const descripcion = e.target.descripcion.value;
+    const precio = e.target.precio.value;
+    const fileImg = e.target.imagen.files[0];
+    let urlImg;
 
-const restaurantCollection = collection(db,"restaurant")
+    if (fileImg) {
+      const refFile = ref(storage, `documentos/${fileImg.name}`);
+      await uploadBytes(refFile, fileImg);
+      urlImg = await getDownloadURL(refFile);
+    }
 
-const createFood = async(e)=>{
-    e.preventDefault()
-    await addDoc(restaurantCollection,{
-        Nombre: food,
-        Ingredientes: description,
-        Precio: price,
-    })
-    navigate("/")
-}
+    const newComida = {
+      nombre: nombre,
+      descripcion: descripcion,
+      precio: precio,
+      imagen: urlImg,
+    };
 
-    return(
-    <div className="container">
-        <div className="row">
-            <div className="col">
-                <h1>create Book</h1>
-               <form onSubmit={createFood}>
-                <div className="mb-3">
-                 <label className="form-label">Comida</label>   
-                 <input 
-                 value={food}
-                 onChange={(e)=>setFood(e.target.value)}
-                 className="form-control"
-                 type="text"/>
-                </div>
+    await addDoc(restaurantCollection, { ...newComida });
+    navigate("/");
+  };
 
-                <div className="mb-3">
-                 <label className="form-label">Ingredientes</label>   
-                 <input 
-                 value={description}
-                 onChange={(e)=>setDescription(e.target.value)}
-                 className="form-control"
-                 type="text"/>
-                </div>
-
-                <div className="mb-3">
-                 <label className="form-label">Precio</label>   
-                 <input 
-                 value={price}
-                 onChange={(e)=>setPrice(e.target.value)}
-                 className="form-control"
-                 type="number"/>
-                </div>
-<button type="submit" className="btn btn-success">Crear Comida</button>
-               </form>
-            </div>
+  return (
+    <div className="card card-body mt-3">
+      <h3 className="text-center">Agregar comidas</h3>
+      <form onSubmit={createFood}>
+        <label>Nombre</label>
+        <div className="form-group">
+          <input
+            type="text"
+            placeholder="Ingresar comida"
+            id="nombre"
+            name="nombre"
+            className="form-control mt-1"
+          />
         </div>
+
+        <label>Descripción</label>
+        <div className="form-group">
+          <input
+            type="text"
+            placeholder="Ingrese descripción"
+            id="descripcion"
+            name="descripcion"
+            className="form-control mt-1"
+          />
+        </div>
+
+        <label>Precio</label>
+        <div className="form-group">
+          <input
+            type="number"
+            placeholder="Ingrese precio"
+            id="precio"
+            name="precio"
+            className="form-control mt-1"
+          />
+        </div>
+
+        <label>Agregar imagen</label>
+        <div className="form-group">
+          <input
+            type="file"
+            id="imagen"
+            name="imagen"
+            placeholder="Agregar imagen"
+            className="form-control"
+          />
+        </div>
+        <button className="btn btn-primary mt-3 form-control">Guardar</button>
+      </form>
     </div>
-    )
-}
+  );
+};
