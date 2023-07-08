@@ -5,9 +5,6 @@ import{db} from "../firebaseConfig/firebase.js"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import {useQuery} from "../hooks/useQuery.jsx"
-import { list } from "firebase/storage"
-import { Create } from "./Create.jsx"
-
 
 const mySwal = withReactContent (Swal)
 
@@ -64,8 +61,8 @@ export const Show =()=> {
 function searching  (search) {
 
         var filtro = restaurant.filter(() => {
-          if (restaurant.Nombre.includes(search)
-          || restaurant.Ingredientes.includes(search)
+          if (restaurant.nombre.includes(search)
+          || restaurant.descripcion.includes(search)
         ) 
         setRestaurant(filtro);
       });
@@ -75,7 +72,6 @@ function searching  (search) {
         getRestaurant()
       },[])   
     
-
       //6 useEFect
       useEffect(()=>{
         searching()
@@ -83,26 +79,20 @@ function searching  (search) {
 
       // 7 devolvemos la vista a nuestro componenete
 
-
 return(
   <div className="container-fluid text-center">
   <div className="row" id="menu">
     <div className="col-xl-12 mt-3 mb-1" >
-      <p>Conocé nuestro</p>
-      <h2>MENÚ</h2>
+    <h2>Restaurant</h2>
+      <p>Conocé nuestros menú</p>
     </div>
-  <div className="d-grid gap-2 col-8 mx-auto justify-content-md-end">
-      <Link to = "/create" className="btn btn-outline-success btn-lg mt-2 mb-2" >New</Link>
-
-  </div>
+    <div className="d-grid gap-2 col-8 mx-auto justify-content-md-end">
+        <Link to = "/create" className="btn btn-outline-success btn-lg mt-2 mb-2" >Nuevo menú</Link>
+    </div>
   <div class="row d-flex justify-content-center">
     {restaurant.map((item) => (
       <div className="card" style={{ width: "18rem" }} key={item.id}>
-        <img
-          src={item.imagen}
-          className="card-img-top"
-          alt="comida"
-        />
+        <img src={item.imagen} className="card-img-top" alt="comida"/>
         <div className="card-body">
           <h5 className="card-title">{item.nombre}</h5>
           <p className="card-text">Ingredientes: {item.descripcion}</p>
@@ -111,12 +101,7 @@ return(
             <i className="fa-solid fa-pencil"></i>
           </Link>
           <button
-            onClick={() => {
-              confirmDelete(item.id);
-            }}
-            className="btn btn-secondary"
-          >
-            <i className="fa-solid fa-trash"></i>
+            onClick={() => {confirmDelete(item.id);}}className="btn btn-secondary"><i className="fa-solid fa-trash"></i>
           </button>
         </div>
       </div>
