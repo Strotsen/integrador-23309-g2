@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Buscador } from './Buscador';
 
+
 export const NavScroll1=()=> {
 return (
     <Navbar sticky='top' expand="lg" className="bg-body-tertiary">
