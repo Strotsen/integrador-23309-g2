@@ -10,7 +10,7 @@ export const NavScroll1=()=> {
 return (
     <Navbar sticky='top' expand="lg" className="bg-body-tertiary">
         <Container fluid className='navBar'>
-        <Navbar.Brand href="#">La Angioplastía</Navbar.Brand>
+        <Navbar.Brand href="/">La Angioplastía</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -18,21 +18,16 @@ return (
             style={{ maxHeight: '100px' }}
             navbarScroll
             >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                    Another action
-                </NavDropdown.Item>
+            <Nav.Link href="/ubicacion">Ubicación</Nav.Link>
+            <Nav.Link href="descuentos">Descuentos</Nav.Link>
+            <NavDropdown title="+" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="#action3">Quiénes somos</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                    Something else here
-                </NavDropdown.Item>
+                <NavDropdown.Item href="#action5">Contacto</NavDropdown.Item>
             </NavDropdown>
         </Nav>
             <Form className="d-flex">
-                <Buscador/>
+                <Buscador href="#action3"/>
             </Form>
         </Navbar.Collapse>
         </Container>
