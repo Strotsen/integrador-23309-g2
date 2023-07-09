@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getDoc, updateDoc, doc } from "firebase/firestore";
-import { db } from "../firebaseConfig/firebase.js";
+import {ref,uploadBytes,getDownloadURL} from "firebase/storage"
+
+import { db,storage } from "../firebaseConfig/firebase.js";
 
 export const Edit = () => {
   const [food, setFood] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
-  const [imageFile,setImageFile] = useState(null)
+  const [imageURL,setImageURL] = useState("")
 
   const navigate = useNavigate();
 
@@ -22,10 +24,19 @@ export const Edit = () => {
       nombre: food,
       descripcion: description,
       precio: price,
-      imagen:imageFile
+      imagen:imageURL
     };
     await updateDoc(restaurantDoc, data);
     navigate("/");
+  };
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    const storageRef = ref(storage, `documentos/${id}`);
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    console.log(url);
+    setImageURL(url);
   };
 
   const getRestaurantById = async () => {
@@ -35,7 +46,7 @@ export const Edit = () => {
       setFood(restaurantDoc.data().nombre);
       setDescription(restaurantDoc.data().descripcion);
       setPrice(restaurantDoc.data().precio);
-      setImageFile(restaurantDoc.data().imagen)
+      
     } else {
       console.log("La comida no existe");
     }
@@ -83,7 +94,7 @@ export const Edit = () => {
             <div className="mb-3">
               <label className="form-label">Imagen</label>
               <input
-                onChange={(e) => setImageFile(e.target.files[0])}
+                onChange={handleImageUpload}
                 type="file"
                 className="form-control"
               />

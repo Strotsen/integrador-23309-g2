@@ -5,6 +5,7 @@ import{db} from "../firebaseConfig/firebase.js"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import {useQuery} from "../hooks/useQuery.jsx"
+import './Show.css'
 
 const mySwal = withReactContent (Swal)
 
@@ -89,10 +90,10 @@ return(
     <div className="d-grid gap-2 col-8 mx-auto justify-content-md-end">
         <Link to = "/create" className="btn btn-outline-success btn-lg mt-2 mb-2" >Nuevo menú</Link>
     </div>
-  <div class="row d-flex justify-content-center">
+  <div className="row d-flex justify-content-center">
     {restaurant.map((item) => (
-      <div className="card" style={{ width: "18rem" }} key={item.id}>
-        <img src={item.imagen} className="card-img-top" alt="comida"/>
+      <div className="card" style={{ width: "16rem" }} key={item.id} id="card">
+        <img src={item.imagen} className="card-img-top rounded-3" alt="comida"/>
         <div className="card-body">
           <h5 className="card-title">{item.nombre}</h5>
           <p className="card-text">Ingredientes: {item.descripcion}</p>
