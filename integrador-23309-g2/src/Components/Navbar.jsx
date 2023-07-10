@@ -16,8 +16,8 @@ return (
             style={{ maxHeight: '100px' }}
             navbarScroll
             >
-            <Nav.Link href="/ubicacion">Ubicación</Nav.Link>
             <Nav.Link href="descuentos">Descuentos</Nav.Link>
+            <Nav.Link href="/ubicacion" target='blanck'>Ubicación</Nav.Link>
             <NavDropdown title="+" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Quiénes somos</NavDropdown.Item>
                 <NavDropdown.Divider />
