@@ -90,7 +90,7 @@ return(
     <div className="d-grid gap-2 col-8 mx-auto justify-content-md-end">
         <Link to = "/create" className="btn btn-outline-success btn-lg mt-2 mb-2" >Nuevo menú</Link>
     </div>
-  <div className="row d-flex justify-content-center">
+  <div className="row d-flex justify-content-center" id="card-menu">
     {restaurant.map((item) => (
       <div className="card" style={{ width: "16rem" }} key={item.id} id="card">
         <img src={item.imagen} className="card-img-top rounded-3" alt="comida"/>
