@@ -1,9 +1,7 @@
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Buscador } from './Buscador';
 
 
 export const NavScroll1=()=> {
@@ -26,9 +24,6 @@ return (
                 <NavDropdown.Item href="#action5">Contacto</NavDropdown.Item>
             </NavDropdown>
         </Nav>
-            <Form className="d-flex">
-                <Buscador href="#action3"/>
-            </Form>
         </Navbar.Collapse>
         </Container>
     </Navbar>

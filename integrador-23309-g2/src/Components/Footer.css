@@ -44,15 +44,15 @@
 #instagram:hover{
     color: red;
     filter: drop-shadow(0 0 5px white);
-    transition: 1s;
+    transition: .5s;
 }
 #facebook:hover{
     color: blue;
     filter: drop-shadow(0 0 5px white);
-    transition: 1s;
+    transition: .5s;
 }
 #twitter:hover{
     color:cyan;
     filter: drop-shadow(0 0 5px white);
-    transition: 1s;
+    transition: .5s;
 }

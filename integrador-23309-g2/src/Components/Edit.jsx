@@ -6,9 +6,9 @@ import {ref,uploadBytes,getDownloadURL} from "firebase/storage"
 import { db,storage } from "../firebaseConfig/firebase.js";
 
 export const Edit = () => {
-  const [food, setFood] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(0);
+  const [nombre, setNombre] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [precio, setPrecio] = useState(0);
   const [imageURL,setImageURL] = useState("")
 
   const navigate = useNavigate();
@@ -21,9 +21,9 @@ export const Edit = () => {
     e.preventDefault();
     const restaurantDoc = doc(db, "restaurant", id);
     const data = {
-      nombre: food,
-      descripcion: description,
-      precio: price,
+      nombre: nombre,
+      descripcion: descripcion,
+      precio: precio,
       imagen:imageURL
     };
     await updateDoc(restaurantDoc, data);
@@ -43,9 +43,9 @@ export const Edit = () => {
 
     const restaurantDoc = await getDoc(doc(db, "restaurant", id));
     if (restaurantDoc.exists()) {
-      setFood(restaurantDoc.data().nombre);
-      setDescription(restaurantDoc.data().descripcion);
-      setPrice(restaurantDoc.data().precio);
+      setNombre(restaurantDoc.data().nombre);
+      setDescripcion(restaurantDoc.data().descripcion);
+      setPrecio(restaurantDoc.data().precio);
       
     } else {
       console.log("La comida no existe");
@@ -65,8 +65,8 @@ export const Edit = () => {
             <div className="mb-3">
               <label className="form-label">Comida</label>
               <input
-                value={food}
-                onChange={(e) => setFood(e.target.value)}
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
                 type="text"
                 className="form-control"
               />
@@ -75,8 +75,8 @@ export const Edit = () => {
             <div className="mb-3">
               <label className="form-label">Ingredientes</label>
               <input
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                value={descripcion}
+                onChange={(e) => setDescripcion(e.target.value)}
                 type="text"
                 className="form-control"
               />
@@ -85,8 +85,8 @@ export const Edit = () => {
             <div className="mb-3">
               <label className="form-label">Precio</label>
               <input
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
+                value={precio}
+                onChange={(e) => setPrecio(e.target.value)}
                 type="number"
                 className="form-control"
               />
