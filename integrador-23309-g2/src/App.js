@@ -7,6 +7,7 @@ import { Footer } from "../src/Components/Footer.jsx";
 import './App.css';
 import {Ubicacion} from "./Components/Ubicacion";
 import { QuienesSomos } from "./Components/QuienesSomos";
+import { Descuentos} from "./Components/Descuentos";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/edit/:id" element ={<Edit/>}/>
         <Route path="/ubicacion" element ={<Ubicacion/>}/> 
         <Route path="/quienessomos" element ={<QuienesSomos/>}/> 
+        <Route path="/descuentos" element ={<Descuentos/>}/> 
       </Routes>
       <Footer/>
     </BrowserRouter>
