@@ -1,8 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-
 
 export const NavScroll1=()=> {
 return (
@@ -18,11 +16,8 @@ return (
             >
             <Nav.Link href="descuentos">Descuentos</Nav.Link>
             <Nav.Link href="/ubicacion" target='blanck'>Ubicación</Nav.Link>
-            <NavDropdown title="+" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="/quienessomos">Quiénes somos</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">Contacto</NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="/quienessomos">Quiénes somos</Nav.Link>
+            <Nav.Link href="#action5">Contacto</Nav.Link>
         </Nav>
         </Navbar.Collapse>
         </Container>
