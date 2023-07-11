@@ -84,7 +84,7 @@ return(
   <div className="container-fluid text-center">
   <div className="row" id="menu">
     <div className="col-xl-12 mt-3 mb-1" >
-    <h2>Restaurant</h2>
+    <h2>La Angioplastía</h2>
       <p>Conocé nuestros menú</p>
     </div>
     <div className="d-grid gap-2 col-8 mx-auto justify-content-md-end">
@@ -97,13 +97,15 @@ return(
         <div className="card-body">
           <h5 className="card-title">{item.nombre}</h5>
           <p className="card-text">Ingredientes: {item.descripcion}</p>
-          <p className="card-text">Stock: {item.precio}</p>
-          <Link to={`/edit/${item.id}`} className="btn btn-light">
+          <p className="card-text stock">Precio: {item.precio}</p>
+          <div className="btn-group">
+          <Link to={`/edit/${item.id}`} className="btn btn-sm btn-primary">
             <i className="fa-solid fa-pencil"></i>
           </Link>
           <button
-            onClick={() => {confirmDelete(item.id);}}className="btn btn-secondary"><i className="fa-solid fa-trash"></i>
+            onClick={() => {confirmDelete(item.id);}}className="btn btn-sm btn-danger"><i className="fa-solid fa-trash"></i>
           </button>
+          </div>
         </div>
       </div>
     ))}
