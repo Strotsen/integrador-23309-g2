@@ -17,7 +17,7 @@ export const Buscador = () => {
   const handleSubmit = async(e) =>{
     e.preventDefault(); // 5 no se realiza el submit
     // consultar con firebase
-    const q = query(collection(db,"restaurant"),where("nombre","==",txtBuscador));
+    const q = query(collection(db,"restaurant"),where("nombre","==",txtBuscador.toLowerCase()));
     const querySnapshot = await getDocs(q);
     //obtener resultados de la consulta
     const results=[]
