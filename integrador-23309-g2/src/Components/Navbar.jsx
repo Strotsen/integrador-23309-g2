@@ -19,7 +19,7 @@ return (
             <Nav.Link href="descuentos">Descuentos</Nav.Link>
             <Nav.Link href="/ubicacion" target='blanck'>Ubicación</Nav.Link>
             <NavDropdown title="+" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Quiénes somos</NavDropdown.Item>
+                <NavDropdown.Item href="/quienessomos">Quiénes somos</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">Contacto</NavDropdown.Item>
             </NavDropdown>

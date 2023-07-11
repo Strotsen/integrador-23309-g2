@@ -6,6 +6,7 @@ import {NavScroll1} from "../src/Components/Navbar.jsx"
 import { Footer } from "../src/Components/Footer.jsx";
 import './App.css';
 import {Ubicacion} from "./Components/Ubicacion";
+import { QuienesSomos } from "./Components/QuienesSomos";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/create" element ={<Create/>}/>  
         <Route path="/edit/:id" element ={<Edit/>}/>
         <Route path="/ubicacion" element ={<Ubicacion/>}/> 
+        <Route path="/quienessomos" element ={<QuienesSomos/>}/> 
       </Routes>
       <Footer/>
     </BrowserRouter>

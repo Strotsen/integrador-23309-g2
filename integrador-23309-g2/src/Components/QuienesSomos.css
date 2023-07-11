@@ -1,0 +1,34 @@
+#div_quienessomos {
+    
+    width: 1346px;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(to bottom, #ff000000, rgb(63, 62, 62)), url(../img/angioplastia\ 3.png);
+    background-position: 10% 45%;
+    display: block;
+    color: white;
+    text-align: left;
+}
+
+#div_interno {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 1000px;
+  height: 100px;
+}
+
+#btn-video {
+    font-size: 1rem;
+    color: white;
+    border-radius: 25px;
+    padding: 10px 20px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 3px solid white;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    margin-top: 10px;
+}
