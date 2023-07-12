@@ -11,17 +11,20 @@
 #img_text{
   display: grid;
   grid-template-columns: auto;
-  text-align: center;
-  justify-items: center;
-  align-items: center;
+  text-align: left;
+  justify-items: left;
+  align-items: left;
 }
 #titulo_inicio{
   display: flex;
   flex-direction: column;
 }
 #div_interno {
-  display: grid;
-  grid-template-columns: 350px;
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 1000px;
+  height: 100px;
 }
 #btn-video {
   font-size: 1rem;
