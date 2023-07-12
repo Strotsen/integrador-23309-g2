@@ -17,7 +17,7 @@ return (
             <Nav.Link href="descuentos">Descuentos</Nav.Link>
             <Nav.Link href="/ubicacion" target='blanck'>Ubicación</Nav.Link>
             <Nav.Link href="/quienessomos">Quiénes somos</Nav.Link>
-            <Nav.Link href="#action5">Contacto</Nav.Link>
+            <Nav.Link href="/contacto">Contacto</Nav.Link>
         </Nav>
         </Navbar.Collapse>
         </Container>

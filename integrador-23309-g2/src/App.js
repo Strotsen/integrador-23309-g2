@@ -8,6 +8,7 @@ import './App.css';
 import {Ubicacion} from "./Components/Ubicacion";
 import { QuienesSomos } from "./Components/QuienesSomos";
 import { Descuentos} from "./Components/Descuentos";
+import { Contacto} from "./Components/Contacto";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/ubicacion" element ={<Ubicacion/>}/> 
         <Route path="/quienessomos" element ={<QuienesSomos/>}/> 
         <Route path="/descuentos" element ={<Descuentos/>}/> 
+        <Route path="/contacto" element ={<Contacto/>}/> 
       </Routes>
       <Footer/>
     </BrowserRouter>
