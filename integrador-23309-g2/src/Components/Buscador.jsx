@@ -43,7 +43,7 @@ export const Buscador = () => {
     /* 6 mostramos como controlamos un input {(e)=>setTxtBuscador(e.target.value.toUpperCase())} */
         type="text" 
         className="inputBuscador" 
-        placeholder="Busque aquí una receta"
+        placeholder="¿Qué querés comer?"
         />
         <button type="submit" className="botonBuscador">
           <FaSearch />
