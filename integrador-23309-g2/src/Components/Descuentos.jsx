@@ -14,8 +14,8 @@ export const Descuentos = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="./a1.jpeg"
-          alt="30% descuento"
+          src="./a1.png"
+          alt="descuento"
         />
         <Carousel.Caption>
           <h3></h3>
@@ -25,8 +25,8 @@ export const Descuentos = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="./a2.jpeg"
-          alt="50% descuento"
+          src="./a2.png"
+          alt="descuento"
         />
 
         <Carousel.Caption>
@@ -37,8 +37,8 @@ export const Descuentos = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="./a3.jpeg"
-          alt="10% descuento"
+          src="./a3.png"
+          alt="descuento"
         />
 
         <Carousel.Caption>
