@@ -14,17 +14,20 @@
   text-align: left;
   justify-items: left;
   align-items: left;
+  
 }
 #titulo_inicio{
   display: flex;
   flex-direction: column;
+  margin-top: 3ch;
 }
 #div_interno {
   position: absolute;
-  bottom: 80px;
+  bottom: 100px;
   right: 0;
   width: 1000px;
   height: 100px;
+
 }
 #btn-video {
   font-size: 1rem;
@@ -38,4 +41,5 @@
   overflow: hidden;
   outline: none;
   margin-top: 10px;
+  
 }

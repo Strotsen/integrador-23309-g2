@@ -13,7 +13,7 @@ export const Contacto = () => {
       </p>
 
       <section className="section_consultas">
-        <div className="formContainer">
+      <div className="formContainer">
           <form
             className="consultas_form"
             action="mailto: laangioplastia@gmail.com"
@@ -46,7 +46,7 @@ export const Contacto = () => {
                 name="mensaje"
                 id="mensaje"
                 rows="10"
-                placeholder="Escribinos aquí"
+                placeholder="Deja tu mensaje aquí"
                 maxLength={200}
               ></textarea>
             </div>
