@@ -26,7 +26,7 @@ export const Contacto = () => {
                 className="form-control-Consultas"
                 name="nombre"
                 id="nombre"
-                placeholder="Nombre..."
+                placeholder="Nombre.."
               />
             </div>
             <div className="form-group">

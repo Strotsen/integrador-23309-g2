@@ -84,10 +84,10 @@ return(
   <div className="container-fluid text-center">
   <div className="row" id="menu">
     <div className="col-xl-12 mt-3 mb-1" >
+      <p>Conocé nuestro menú</p>
       <div class="banner">
           <img src="./banner.png" />
       </div> 
-      <p>Conocé nuestro menú</p>
     </div>
     <div className="d-grid gap-2 col-8 mx-auto justify-content-md-end">
         <Link to = "/create" className="btn btn-outline-success btn-lg mt-2 mb-2" >Nuevo menú</Link>
