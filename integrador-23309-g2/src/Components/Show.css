@@ -4,6 +4,20 @@
     row-gap: 15px;
     margin: 0 0 55px 0;
 }
+
+.banner img {
+    max-width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+
 #card{
     padding: 10px;
 }
+
+
+

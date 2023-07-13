@@ -84,7 +84,9 @@ return(
   <div className="container-fluid text-center">
   <div className="row" id="menu">
     <div className="col-xl-12 mt-3 mb-1" >
-    <h2>La Angioplastía</h2>
+      <div class="banner">
+          <img src="./banner.png" />
+      </div> 
       <p>Conocé nuestro menú</p>
     </div>
     <div className="d-grid gap-2 col-8 mx-auto justify-content-md-end">

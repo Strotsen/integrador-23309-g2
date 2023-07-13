@@ -48,8 +48,8 @@ body {background-color:#031634;}
 .navbar{background-color:#033649 !important}
 .navbar-brand {color:#CEB280; font-weight: bold;}
 .navbar-brand:hover { color:#fff;}
-.navbar-nav a {color:#EADDCC;  font-family: 'Montserrat', sans-serif !important; font-weight: bold;}
-.navbar-nav a:hover{color:#fff} 
+.navbar-nav a {color:#bf9e6c;  font-family: 'Montserrat', sans-serif !important; font-weight: bold;}
+.navbar-nav a:hover{color:#54462b} 
 
 /* Color Theme Swatches in Hex */
 /* Color Theme Swatches in Hex */
@@ -63,10 +63,10 @@ h1,h2,h3,h4,h5 { font-family: 'Montserrat', sans-serif !important; font-weight: 
 body, a, p , strong, span, label, input, {
 font-family: 'Lato', sans-serif;}
 
-h2{color:#CEB280}
-p {color:#EADDCC;}
+h2{color:#d5ba8b}
+p {color:#b9a488;}
 .footer{background-color: #003049;}
-.card {background-color:#EADDCC;}
+.card {background-color:#cebca3;}
 /*.card:hover{background-color:#fff;}*/
 .card-title{color:#066464;  
   min-height: 60px;
